@@ -1,0 +1,27 @@
+# KLEOS Backend — Python Dependencies
+# Install with: pip install -r requirements.txt
+# Requires: Python 3.9+
+
+# ─── Third-Party (pip install required) ──────────────────────
+
+# Async HTTP client — used in:
+#   backend/ai/llm.py            (OpenAI, Anthropic, Ollama API calls)
+#   backend/integrations/meta_ads.py   (Meta Graph API)
+#   backend/integrations/google_ads.py (Google Ads API + OAuth token refresh)
+httpx>=0.27.0
+
+# ─── Standard Library (built-in, no install needed) ──────────
+
+# asyncio      — async/await task scheduling (ai/queue.py, engine/run_cycle.py)
+# uuid         — UUID generation for IDs (agents, memory, engine)
+# json         — JSON serialisation (agents, integrations, memory)
+# logging      — Server-side logging (engine/steps/shift.py, report.py)
+# math         — Math helpers: ceil, round (agents/creative_agent.py)
+# os           — Environment variable access: os.environ.get (ai/llm.py, ai/agents.py)
+# random       — Random floats for simulated CTR/fatigue (agents/creative_agent.py)
+# time         — Timestamps: time.time() (memory, agents, engine)
+# datetime     — Date formatting for reports (engine/steps/report.py)
+# copy         — Shallow copy for job queue listeners (ai/queue.py)
+# dataclasses  — @dataclass decorator (all modules)
+# typing       — Type hints: Optional, Literal, Callable (all modules)
+
